@@ -2,7 +2,7 @@
   var scriptName = "tib_widget.js"; //name of this script, used to get reference to own tag
   var jQuery; //noconflict reference to jquery
   var jqueryVersion = "3.3.1";
-  var jqueryPath = "http://ajax.googleapis.com/ajax/libs/jquery/" + jqueryVersion + "/jquery.min.js"; 
+  var jqueryPath = "//ajax.googleapis.com/ajax/libs/jquery/" + jqueryVersion + "/jquery.min.js"; 
 
   var scriptTag; //reference to the html script tag
 
