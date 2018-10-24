@@ -97,19 +97,25 @@ function initjQuery() {
       console.log(this)
       // this.setState({showTip: !this.state.showTip})
     }
-  
+
+    renderSyl = (syl, notFound=true) => 
+      `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
+        <p></p>
+        <a class="tib ${notFound && 'notFound'}" style='font-size: ${this.size}; color: ${this.color}'>${syl}་</a>
+      </span>`
+      
     renderSylabe(s) {
       let tib = ''
       if (s === '')
         return ''
       var syl = Find(this.syllabsDict, s, this.isWylie)
       if (syl === undefined)
-        return(
-          `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-            <p></p>
-            <a class="tib notFound" style='font-size: ${this.size}'>${s}་</a>
-          </span>`
-        );
+        return this.renderSyl(s)
+        //   `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
+        //     <p></p>
+        //     <a class="tib notFound" style='font-size: ${this.size}; color: ${this.color}'>${s}་</a>
+        //   </span>`
+        // );
       else
         if (!this.isWylie) {
           this.wylieArray.push(syl.wy || s)
@@ -118,12 +124,13 @@ function initjQuery() {
           tib = syl.tib
         }
         this.drajorArray.push(syl.dra)
-        return (`
-          <span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-            <p></p>
-            <a class="tib" data-tib=${s} style='font-size: ${this.size}; color: ${this.color}'>${tib}</a>
-          </span>
-          `)
+        return this.renderSyl(tib)
+        // (
+        //   `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
+        //     <p></p>
+        //     <a class="tib" data-tib=${s} style='font-size: ${this.size}; color: ${this.color}'>${tib}</a>
+        //   </span>
+        //   `)
     }
   };
 
