@@ -103,7 +103,7 @@ function initjQuery() {
       var syl = Find(this.syllabsDict, s, this.isWylie)
       if (syl === undefined)
         return(
-          `<span class="syll"><p></p><a class="tib notFound" style='font-size: ${this.size}'>${s}་</a></span>`
+          `<span class="syll"><p></p><a class="tib notFound" style='font-size: ${this.size}, color: ${this.color}'>${s}་</a></span>`
         );
       else
         if (!this.isWylie) {
