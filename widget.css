@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'NotoSansTibetan';
-  src: url('NotoSansTibetan-Regular') format('truetype');
+  src: url('NotoSansTibetan-Regular.ttf') format('truetype');
 }
 .tib {
   font-family: 'NotoSansTibetan', sans-serif;
