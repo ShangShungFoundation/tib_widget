@@ -116,7 +116,7 @@ function initjQuery() {
         return (`
           <span class="syll">
             <p></p>
-            <a class="tib" data-tib=${s} style='font-size: ${this.size}'>${tib}</a>
+            <a class="tib" data-tib=${s} style='font-size: ${this.size}, color: ${this.color}'>${tib}</a>
           </span>
           `)
     }
