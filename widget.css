@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'NotoSansTibetan';
-  src: url('NotoSansTibetan-Regular') format('truetype');
+  src: url('NotoSansTibetan-Regular.ttf') format('truetype');
 }
 .tib {
   font-family: 'NotoSansTibetan', sans-serif;
   font-style:normal;
-  /* text-shadow: 1px 1px 3px #000000;  */
+  text-decoration: none;
   cursor: pointer;
 }
 .syll {
@@ -20,7 +20,7 @@
   font-style:normal;
   color: #f7e8a9;
   /* text-shadow: 1px 1px 3px #000000; */
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .tip {
     position: absolute;
