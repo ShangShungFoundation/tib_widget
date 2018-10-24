@@ -2,7 +2,7 @@
   var scriptName = "tib_widget.js"; //name of this script, used to get reference to own tag
   var jQuery; //noconflict reference to jquery
   var jqueryVersion = "3.3.1";
-  var jqueryPath = "//ajax.googleapis.com/ajax/libs/jquery/" + jqueryVersion + "/jquery.min.js"; 
+  var jqueryPath = "https://ajax.googleapis.com/ajax/libs/jquery/" + jqueryVersion + "/jquery.min.js"; 
 
   var scriptTag; //reference to the html script tag
 
@@ -68,8 +68,10 @@ function initjQuery() {
   }
 
   class TibText {
-    constructor(text, syllabsDict, size) {
+    constructor(text, syllabsDict, size, color, background) {
       this.text = text;
+      this.color = color;
+      this.background = background;
       this.syllabsDict = syllabsDict;
       this.isWylie = false
       this.textArray = []
@@ -78,8 +80,8 @@ function initjQuery() {
       this.size = size
       this.spacer = "<span>&nbsp;</span>";
       this.syllabes = this.toSyllabes(text, this.spacer )
-      this.wylie = this.wylieArray.join(' ')
       this.html = this.syllabes.join(' ')
+      this.wylie = this.wylieArray.join(' ')
       this.drajor = this.drajorArray.join(' ')
     }
     
@@ -103,7 +105,9 @@ function initjQuery() {
       var syl = Find(this.syllabsDict, s, this.isWylie)
       if (syl === undefined)
         return(
-          `<span class="syll"><p></p><a class="tib notFound" style='font-size: ${this.size}'>${s}་</a></span>`
+          `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
+            <p></p><a class="tib notFound" style='font-size: ${this.size}'>${s}་</a>
+          </span>`
         );
       else
         if (!this.isWylie) {
@@ -114,7 +118,7 @@ function initjQuery() {
         }
         this.drajorArray.push(syl.dra)
         return (`
-          <span class="syll">
+          <span class="syll" style="color: ${this.color}; background-color: ${this.background}">
             <p></p>
             <a class="tib" data-tib=${s} style='font-size: ${this.size}'>${tib}</a>
           </span>
@@ -144,12 +148,11 @@ function initjQuery() {
       const text = scriptTag.dataset.text;
       const syllabsDict = JSON.parse(scriptTag.dataset.syllabes);
       const size = scriptTag.dataset.size == '' ?  '2em': scriptTag.dataset.size + 'em';
-      const tibText = new TibText(text, syllabsDict, size) 
-      
       const color = scriptTag.dataset.color || 'black';
-      const background = scriptTag.dataset.background || 'gray';
-      const show_wylie = scriptTag.dataset.show_wylie == '' ? `<p class='wy'>${tibText.wylie}</p>` : ''
-      const show_dra = scriptTag.dataset.show_dra == '' ? `<p class='dra'>${tibText.drajor}</p>` : ''
+      const background = scriptTag.dataset.background || '#DDD';
+      const tibText = new TibText(text, syllabsDict, size, color, background) 
+      const show_wylie = scriptTag.dataset.show_wylie == '' ? '' : `<p class='wy'>${tibText.wylie}</p>`;
+      const show_dra = scriptTag.dataset.show_dra == '' ?  '' : `<p class='dra'>${tibText.drajor}</p>`
       const renderedSyllabes = tibText.html
       scriptEle.after(
         `<div class='tib'>

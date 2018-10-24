@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- published at https://shangshungfoundation.github.io/tib_widget/index.html -->
 <html>
 <head>
   <meta charset=utf-8>
@@ -7,19 +8,42 @@
 <body>
     <section style="margin: 20%">
         <p>
-            This is widget example allowing tibetan spelling of arbitrary tibetan text. Visit <a href="https://shangshungfoundation.github.io/tib_learn_app/spellchecker">shangshungfoundation.github.io/tib_learn_app/spellchecker</a> to export it
+            This is widget example allowing tibetan spelling of arbitrary tibetan text. 
         </p>
         <p>
-            tibetan text with wylie transcription
+            Modifibale parameters:
+        </p>
+        <ul>
+            <li>
+                size - 1 coresponds to default page text size
+            </li>
+            <li>
+                color - sets text color, default is black
+            </li>
+            <li>
+                backgroud - sets text backgroud color, default is gray (#DDD)
+            </li>
+        </ul>
+        <p>
+            Visit <a href="https://shangshungfoundation.github.io/tib_learn_app/spellchecker">shangshungfoundation.github.io/tib_learn_app/spellchecker</a> to export it
+        </p>
+        <p>
+            big tibetan text (size 4) with Drayor transcription
         </p>
         <div style="text-align: center">
-            <script src="//shangshungfoundation.github.io/tib_widget/tib_widget.js" data-text="ཞལ་གདམས་མདོར་བསྡུས།" data-syllabes={"ཞལ":{"tib":"ཞལ","wy":"zhal","spel":"5/180_wal.mp3","dra":"XǍL","clean":"ཞལ་"},"གདམས":{"tib":"གདམས","wy":"gdams","spel":"","dra":"DÁM","clean":"གདམས་"},"བསྡུས།":{"tib":"བསྡུས།","wy":"bsdus","spel":"","dra":"DÚS","clean":"བསྡུས་"}} data-show_dra data-color='gray' data-size='4'></script>
+            <script src="tib_widget.js" data-text="ཞལ་གདམས་མདོར་བསྡུས།" data-syllabes={"ཞལ":{"tib":"ཞལ","wy":"zhal","spel":"5/180_wal.mp3","dra":"XǍL","clean":"ཞལ་"},"གདམས":{"tib":"གདམས","wy":"gdams","spel":"","dra":"DÁM","clean":"གདམས་"},"བསྡུས།":{"tib":"བསྡུས།","wy":"bsdus","spel":"","dra":"DÚS","clean":"བསྡུས་"}} data-show_wylie data-color='gray' data-size='4'></script>
         </div>
         <p>
-            small tibetan text with wylie transcription
+            small tibetan (size 2) text without Wylie transcription 
         </p>
         <div style="text-align: center">
-            <script src="//shangshungfoundation.github.io/tib_widget/tib_widget.js" data-text="ཞལ་གདམས་མདོར་བསྡུས།" data-syllabes={"ཞལ":{"tib":"ཞལ","wy":"zhal","spel":"5/180_wal.mp3","dra":"XǍL","clean":"ཞལ་"},"གདམས":{"tib":"གདམས","wy":"gdams","spel":"","dra":"DÁM","clean":"གདམས་"},"བསྡུས།":{"tib":"བསྡུས།","wy":"bsdus","spel":"","dra":"DÚS","clean":"བསྡུས་"}} data-show_dra data-color='black' data-size='2'></script>
+            <script src="tib_widget.js" data-text="ཞལ་གདམས་མདོར་བསྡུས།" data-syllabes={"ཞལ":{"tib":"ཞལ","wy":"zhal","spel":"5/180_wal.mp3","dra":"XǍL","clean":"ཞལ་"},"གདམས":{"tib":"གདམས","wy":"gdams","spel":"","dra":"DÁM","clean":"གདམས་"},"བསྡུས།":{"tib":"བསྡུས།","wy":"bsdus","spel":"","dra":"DÚS","clean":"བསྡུས་"}} data-show_dra data-background='transparent'  data-color='black' data-size='2'></script>
+        </div>
+        <p>
+            small tibetan (size 2) text with Wylie transcription 
+        </p>
+        <div style="text-align: center">
+            <script src="tib_widget.js" data-text="ཞལ་གདམས་མདོར་བསྡུས།" data-syllabes={"ཞལ":{"tib":"ཞལ","wy":"zhal","spel":"5/180_wal.mp3","dra":"XǍL","clean":"ཞལ་"},"གདམས":{"tib":"གདམས","wy":"gdams","spel":"","dra":"DÁM","clean":"གདམས་"},"བསྡུས།":{"tib":"བསྡུས།","wy":"bsdus","spel":"","dra":"DÚS","clean":"བསྡུས་"}} data-show_dra data-background='black' data-color='white' data-size='2'></script>
         </div>
     </section>
 </body>
