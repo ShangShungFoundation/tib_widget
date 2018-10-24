@@ -111,11 +111,6 @@ function initjQuery() {
       var syl = Find(this.syllabsDict, s, this.isWylie)
       if (syl === undefined)
         return this.renderSyl(s)
-        //   `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-        //     <p></p>
-        //     <a class="tib notFound" style='font-size: ${this.size}; color: ${this.color}'>${s}་</a>
-        //   </span>`
-        // );
       else
         if (!this.isWylie) {
           this.wylieArray.push(syl.wy || s)
@@ -125,12 +120,6 @@ function initjQuery() {
         }
         this.drajorArray.push(syl.dra)
         return this.renderSyl(tib)
-        // (
-        //   `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-        //     <p></p>
-        //     <a class="tib" data-tib=${s} style='font-size: ${this.size}; color: ${this.color}'>${tib}</a>
-        //   </span>
-        //   `)
     }
   };
 
