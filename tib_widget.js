@@ -106,7 +106,8 @@ function initjQuery() {
       if (syl === undefined)
         return(
           `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-            <p></p><a class="tib notFound" style='font-size: ${this.size}'>${s}་</a>
+            <p></p>
+            <a class="tib notFound" style='font-size: ${this.size}'>${s}་</a>
           </span>`
         );
       else
@@ -120,7 +121,7 @@ function initjQuery() {
         return (`
           <span class="syll" style="color: ${this.color}; background-color: ${this.background}">
             <p></p>
-            <a class="tib" data-tib=${s} style='font-size: ${this.size}, color: ${this.color}'>${tib}</a>
+            <a class="tib" data-tib=${s} style='font-size: ${this.size}; color: ${this.color}'>${tib}</a>
           </span>
           `)
     }
