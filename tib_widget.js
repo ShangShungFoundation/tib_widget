@@ -126,7 +126,7 @@ function initjQuery() {
     //your widget code goes here
     jQuery(document).ready(function ($) {
       const URL = 'https://shangshungfoundation.github.io/tib_learn_app/'
-      loadCss("widget.css");
+      loadCss(`${URL}widget.css`);
       function renderTip(syl) {
         const spel = (syl.spel !== '') ? 
         `<audio autoPlay>
