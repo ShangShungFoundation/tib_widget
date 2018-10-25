@@ -50,5 +50,6 @@
 }
 
 .tip_anchor {
-  margin-top: -2em;
+  position: absolute;
+  margin-top: -1em;
 }
