@@ -78,14 +78,14 @@ function initjQuery() {
       this.wylieArray = []
       this.drajorArray = []
       this.size = size
-      this.spacer = "<span>&nbsp;</span>";
-      this.syllabes = this.toSyllabes(text, this.spacer )
-      this.html = this.syllabes.join(' ')
+      // this.spacer = "<span>&nbsp;</span>";
+      this.syllabes = this.toSyllabes(text)
+      this.html = this.syllabes.join('')
       this.wylie = this.wylieArray.join(' ')
       this.drajor = this.drajorArray.join(' ')
     }
     
-    toSyllabes(text, spacer){
+    toSyllabes(text){
       let textWhiteSpaceArray = text.split(/[ ]+/g)
       let syllArray = textWhiteSpaceArray.map((w) => w.split('་').map((s, i) => this.renderSylabe(s)))
       // console.log(syllArray)
@@ -93,23 +93,24 @@ function initjQuery() {
       return syllArray[0]
     }
   
-    toogleTip() {
-      console.log(this)
-      // this.setState({showTip: !this.state.showTip})
-    }
-  
+    // toogleTip() {
+    //   console.log(this)
+    //   // this.setState({showTip: !this.state.showTip})
+    // }
+
+    renderSyl(syl, s) {
+      return (`<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
+        <span class="tip_anchor"></span>
+        <a class="tib ${!s && 'notFound'}" ${s && 'data-tib=' + s } style='font-size: ${this.size}; color: ${this.color}'>${syl}་</a>
+      </span>`)}
+    
     renderSylabe(s) {
       let tib = ''
       if (s === '')
         return ''
       var syl = Find(this.syllabsDict, s, this.isWylie)
       if (syl === undefined)
-        return(
-          `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-            <p></p>
-            <a class="tib notFound" style='font-size: ${this.size}'>${s}་</a>
-          </span>`
-        );
+        return this.renderSyl(s, false)
       else
         if (!this.isWylie) {
           this.wylieArray.push(syl.wy || s)
@@ -118,12 +119,12 @@ function initjQuery() {
           tib = syl.tib
         }
         this.drajorArray.push(syl.dra)
-        return (`
-          <span class="syll" style="color: ${this.color}; background-color: ${this.background}">
-            <p></p>
+        return (
+          `<span class="syll" style="color: ${this.color}; background-color: ${this.background}">
+            <span class="tip_anchor"></span>
             <a class="tib" data-tib=${s} style='font-size: ${this.size}; color: ${this.color}'>${tib}</a>
-          </span>
-          `)
+          </span>`)
+        // return this.renderSyl(tib, s)
     }
   };
 

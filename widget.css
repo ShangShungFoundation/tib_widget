@@ -48,3 +48,7 @@
 .wy {
   font-style: italic;
 }
+
+.tip_anchor {
+  margin-top: -2em;
+}
