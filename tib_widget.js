@@ -1,6 +1,6 @@
 (function () {
   var scriptName = "tib_widget.js"; //name of this script, used to get reference to own tag
-  var jQuery; //noconflict reference to jquery
+  var jQ; //noconflict reference to jquery
   var jqueryVersion = "3.3.1";
   var jqueryPath = "https://ajax.googleapis.com/ajax/libs/jquery/" + jqueryVersion + "/jquery.min.js"; 
 
@@ -45,15 +45,15 @@
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(link_tag);
   }
 
-  /******** load jquery into 'jQuery' variable then call main ********/
-  if (window.jQuery === undefined || window.jQuery.fn.jquery !== jqueryVersion) {
-      loadScript(jqueryPath, initjQuery);
+  /******** load jquery into 'jQ' variable then call main ********/
+  if (window.jQ === undefined || window.jQ.fn.jquery !== jqueryVersion) {
+      loadScript(jqueryPath, initjQ);
   } else  {
-    initjQuery();
+    initjQ();
 }
 
-function initjQuery() {
-    jQuery = window.jQuery.noConflict(true);
+function initjQ() {
+    jQ = window.jQ.noConflict(true);
     main();
 }
 
@@ -132,7 +132,7 @@ function initjQuery() {
 
   function main() {
     //your widget code goes here
-    jQuery(document).ready(function ($) {
+    jQ(document).ready(function ($) {
       const URL = 'https://shangshungfoundation.github.io/tib_learn_app/'
       loadCss(`https://shangshungfoundation.github.io/tib_widget/widget.css`);
       function renderTip(syl) {
